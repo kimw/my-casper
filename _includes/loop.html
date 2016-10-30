@@ -1,0 +1,46 @@
+<!-- BEGIN: loop.html -->
+{% comment %} Previous/next page links - only displayed on page 2+ {% endcomment %}
+<div class="extra-pagination inner">
+  {% include pagination.html %}
+</div>
+
+{% comment %} This is the post loop - each post will be output using this markup {% endcomment %}
+{% case page.layout %}
+  {% when "home", "post", "archive" %}
+    {% assign article_class = "post" %}
+  {% else %}
+    <p style="font-size: 20px; font-weight: bold; color: red;">ERROR: The `article_class` was not assigned while `page.layout == "{{ page.layout }}"`. (Reported by: _layout/post.html)</p>
+{% endcase %}
+
+{% if paginator %}
+  {% comment %} jekyll-paginate support {% endcomment %}
+  {% assign posts = paginator.posts %}
+{% elsif site.archives.size > 0 %}
+  {% comment %} jekyll-archive support {% endcomment %}
+  {% assign posts = page.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% for post in posts %}
+<article class="{{ article_class }}">
+  <header class="post-header">
+    <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title | strip | escape }}</a></h2>
+  </header>
+  <section class="post-excerpt">
+    <p>{{ post.excerpt | strip_html | truncatewords: 26, "" }} <a class="read-more" href="{{ post.url | relative_url }}">&raquo;</a></p>
+  </section>
+  <footer class="post-meta">
+    {% assign author = post.author | default: site.author %}
+    {% assign avatar = site.data.authors[author].avatar %}
+    {% if avatar %}<img class="author-thumb" src="{{ avatar }}" alt="{{ author | strip | escape }}" nopin="nopin" />{% endif %}
+    {% if author %}{{ author }}{% endif %}
+    {% include tags.html tags=post.tags %}
+    {% include date.html date=post.date %}
+  </footer>
+</article>
+{% endfor %}
+
+{% comment %} Previous/next page links - displayed on every page {% endcomment %}
+{% include pagination.html %}
+<!-- END: loop.html -->

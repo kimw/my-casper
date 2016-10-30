@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+{% comment %} If we have a tag cover, display that - else blog cover - else nothing {% endcomment %}
+{% comment %} TODO: implement tag.cover {% endcomment %}
+{% if tag.cover %}
+  {% assign cover = tag.cover | relative_url %}
+{% elsif site.cover %}
+  {% assign cover = site.cover | relative_url %}
+{% endif %}
+<header class="main-header tag-head{% if cover %}" style="background-image: url({{ cover }}){% else %} no-cover{% endif %}">
+  <nav class="main-nav overlay clearfix">
+    {% if site.logo %}<a class="blog-logo" href="{{ site.url }}"><img src="{{ site.logo }}" alt="{{ site.title }}" /></a>{% endif %}
+    {% if site.data.navigations %}<a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>{% endif %}
+  </nav>
+  <div class="vertical">
+    <div class="main-header-content inner">
+      <h1 class="page-title">{{ page.title }}</h1>
+      <h2 class="page-description">
+        {% comment %} TODO: implement tag.description {% endcomment %}
+        {% if tag.description %}
+          {{ tag.description }}
+        {% else %}
+          A {{ page.posts.size }}-post collection
+        {% endif %}
+      </h2>
+    </div>
+  </div>
+</header>
+
+<main class="content" role="main">
+
+  {% include loop.html %}
+
+</main>

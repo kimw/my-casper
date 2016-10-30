@@ -1,0 +1,20 @@
+<!-- BEGIN: navigation.html -->
+<div class="nav">
+  <h3 class="nav-title">Menu</h3>
+  <a href="#" class="nav-close">
+    <span class="hidden">Close</span>
+  </a>
+  <ul>
+    {% for item in site.data.navigations %}
+    {% assign default_slug = item.name | downcase %}
+    <li class="nav-{{ item.slug | default: default_slug }}{% if page.url == item.url %} nav-current{% endif %}" role="presentation"><a href="{{ item.url | relative_url }}">{{ item.name }}</a></li>
+    {% endfor %}
+  </ul>
+  {% if site.subscribers %}
+    <a class="subscribe-button" href="{{ "/subscribe/" | relative_url }}">Subscribe</a>
+  {% else %}
+    <a class="subscribe-button icon-feed" href="{{ "/rss/" | relative_url }}">Subscribe</a>
+  {% endif %}
+</div>
+<span class="nav-cover"></span>
+<!-- END: navigation.html -->

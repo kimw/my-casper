@@ -1,0 +1,16 @@
+{% if site.archives.size > 0 %}
+  {% assign tag_link = true %}
+{% else %}
+  {% assign tag_link = false %}
+{% endif %}
+
+{% if include.tags.size > 0 %}
+  on
+  {% assign tags = include.tags | uniq %}
+  {% assign size = tags.size | minus: 2 %}
+  {% assign last_tag = tags | last %}
+  {% for i in (0..size) %}
+    {% if tag_link %}<a href="{{ tags[i] | slugify | prepend: "/tag/" | relative_url }}">{% endif %}{{ tags[i] }}{% if tag_link %}</a>{% endif %},
+  {% endfor %}
+  {% if tag_link %}<a href="{{ last_tag | slugify | prepend: "/tag/" | relative_url }}">{% endif %}{{ last_tag }}{% if tag_link %}</a>{% endif %}
+{% endif %}

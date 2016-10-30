@@ -1,0 +1,27 @@
+title: Un blog increíble
+author: GitHub User
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in `_config.yml`. It will appear in your document head meta (for
+  Google search results) and in your `feed.xml` site description.
+baseurl: /blog
+twitter_username: jekyllrb
+github_username:  jekyll
+
+cover: null
+
+paginate: 5
+
+jekyll-archives:
+  enabled: true
+
+# Build settings
+markdown: kramdown
+theme: my-casper
+exclude:
+  - Gemfile
+  - Gemfile.lock
+gems:
+  - jekyll-paginate
+  - jekyll-archives

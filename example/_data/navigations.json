@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Home",
+        "slug": "home",
+        "url": "/",
+        "*ULGY*COMMENTS*": "The `slug` is optional. it'll be created using jekyll's `slug` filter on `name`. BTW, use YAML comments pretty."
+    },
+    {
+        "name": "About",
+        "url": "/about/"
+    }
+]

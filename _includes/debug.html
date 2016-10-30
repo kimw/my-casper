@@ -1,0 +1,29 @@
+<!-- BEGIN: debug.html -->
+{% if jekyll.environment == "debug" %}
+<style type="text/css">
+  pre.debug {
+    font: 12px monospace;
+  }
+  pre.debug span {
+    color: blue;
+    font-weight: bold;
+  }
+</style>
+<pre class="debug">
+  <code>
+    TODO: remove this comment block in release.
+
+    <span>"number_of_words" of content</span>=>{{ page.content | default: "" | number_of_words | inspect }}
+    <span>site.pages</span>=>{{ site.pages | inspect }}
+    <span>site.posts</span>=>{{ site.posts | inspect }}
+    <span>site.data</span>=>{{ site.data | inspect }}
+    <span>site.paginate</span>=>{{ site.paginate | inspect }}
+    <span>site.archives</span>=>{{ site.archives | inspect }}
+    <span>page</span>=>{{ page | xml_escape }}
+    <span>post</span>=>{{ post | xml_escape }}
+    <span>paginator</span>=>{{ paginator | inspect }}
+    <span>archives</span>=>{{ archives | inspect }}
+  </code>
+</pre>
+{% endif %}
+<!-- END: debug.html -->

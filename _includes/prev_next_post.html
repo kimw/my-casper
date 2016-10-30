@@ -1,0 +1,37 @@
+<!-- BEGIN: prev_next_post.html -->
+{% comment %} skip hidden pages {% endcomment %}
+{% assign next_page = page.next %}
+{% for i in (0..page.size) %}
+  {% if next_page.hidden %}
+    {% assign next_page = next_page.next %}
+  {% else %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+{% assign previous_page = page.previous %}
+{% for i in (0..page.size) %}
+  {% if previous_page.hidden %}
+    {% assign previous_page = previous_page.previous %}
+  {% else %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+<aside class="read-next">
+{% if next_page %}
+  <a class="read-next-story{% if next_page.cover %}" style="background-image: url({{ next_page.cover }}){% else %} no-cover{% endif %}" href="{{ next_page.url | relative_url }}">
+    <section class="post">
+      <h2>{{ next_page.title }}</h2>
+      <p>{{ next_page.excerpt | strip_html | truncatewords: 26, "" }} &hellip;</p>
+    </section>
+  </a>
+{% endif %}
+{% if previous_page %}
+  <a class="read-next-story{% if previous_page.cover %}" style="background-image: url({{ previous_page.cover }}){% else %} no-cover{% endif %}" href="{{ previous_page.url | relative_url }}">
+    <section class="post">
+      <h2>{{ previous_page.title }}</h2>
+      <p>{{ previous_page.excerpt | strip_html | truncatewords: 26, "" }} &hellip;</p>
+    </section>
+  </a>
+{% endif %}
+</aside>
+<!-- END: prev_next_post.html -->

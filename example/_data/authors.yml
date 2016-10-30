@@ -1,0 +1,13 @@
+GitHub User:
+  avatar:   /assets/avatars/icon-github.png
+  slug:     github-user
+  email:    someone@github.com
+  location: >           # Where in the world do you live?
+            88 Colin P Kelly Jr St,
+            San Francisco,
+            CA 94107
+  website:  https://github.com  # Have a website or blog other than this one?
+  github:   github      # Your GitHub account name.
+  facebook: github      # Your Facebook account name.
+  twitter:  github      # Your Twitter account name.
+  bio:      null        # Write about you, better in 200 characters or less.
