@@ -91,6 +91,9 @@ includes, and/or sass.
   ```yaml
   gems:
     - jekyll-archives
+
+  jekyll-archives:
+    enabled: true
   ```
 
 * Enabling author avatar
@@ -147,6 +150,16 @@ includes, and/or sass.
   ...
   cover: /assets/covers/site-cover.jpg
   ---
+  ```
+
+* Make your site more like Ghost's
+
+  Add lines below to your Jekyll site's config file, `_config.yml`.
+
+  ```yaml
+  paginate: 5
+  paginate_path: /page/:num/
+  permalink: /:title/
   ```
 
 <!--
