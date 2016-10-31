@@ -25,7 +25,16 @@ layout: null
     <!--
     TODO: can jekyll-archive support pagination?
     -->
-    {% capture meta_title %}{{ page.title }} - {{ site.title }} {% endcapture %}
+    {% case page.type %}
+      {% when 'tag' %}
+        {% capture meta_title %}{{ page.title }} - {{ site.title }} {% endcapture %}
+      {% when 'year' %}
+        {% capture meta_title %}{{ page.date | date: "%Y" }} - {{ site.title }} {% endcapture %}
+      {% when 'month' %}
+        {% capture meta_title %}{{ page.date | date: "%B %Y" }} - {{ site.title }} {% endcapture %}
+      {% when 'day' %}
+        {% capture meta_title %}{{ page.date | date: "%B %d, %Y" }} - {{ site.title }} {% endcapture %}
+    {% endcase %}
     {% assign meta_title = meta_title | strip | escape %}
     {% assign meta_description = page.excerpt | strip_html | normalize_whitespace | escape %}
     <!--

@@ -16,7 +16,14 @@ layout: default
   </nav>
   <div class="vertical">
     <div class="main-header-content inner">
-      <h1 class="page-title">{{ page.title }}</h1>
+      <h1 class="page-title">
+        {% case page.type %}
+          {% when 'tag'   %}{{ page.title }}
+          {% when 'year'  %}{{ page.date | date: "%Y" }}
+          {% when 'month' %}{{ page.date | date: "%B %Y" }}
+          {% when 'day'   %}{{ page.date | date: "%B %d, %Y" }}
+        {% endcase %}
+      </h1>
       <h2 class="page-description">
         {% comment %} TODO: implement tag.description {% endcomment %}
         {% if tag.description %}
