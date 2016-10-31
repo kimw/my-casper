@@ -10,7 +10,7 @@
   {% assign size = tags.size | minus: 2 %}
   {% assign last_tag = tags | last %}
   {% for i in (0..size) %}
-    {% if tag_link %}<a href="{{ tags[i] | slugify | prepend: "/tag/" | relative_url }}">{% endif %}{{ tags[i] }}{% if tag_link %}</a>{% endif %},
+    {% if tag_link %}<a href="{{ tags[i] | slugify | append: "/" | prepend: "/tag/" | relative_url }}">{% endif %}{{ tags[i] }}{% if tag_link %}</a>{% endif %},
   {% endfor %}
-  {% if tag_link %}<a href="{{ last_tag | slugify | prepend: "/tag/" | relative_url }}">{% endif %}{{ last_tag }}{% if tag_link %}</a>{% endif %}
+  {% if tag_link %}<a href="{{ last_tag | slugify | append: "/" | prepend: "/tag/" | relative_url }}">{% endif %}{{ last_tag }}{% if tag_link %}</a>{% endif %}
 {% endif %}

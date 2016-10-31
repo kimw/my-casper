@@ -1,8 +1,8 @@
 <time class="post-date" datetime="{{ include.date | date: "%Y-%m-%d" }}">
 {% if site.archives.size > 0 %}
-  <a href="{{ include.date | date: "%Y/%m/%d" | relative_url }}">{{ include.date | date: "%d" }}</a>
-  <a href="{{ include.date | date: "%Y/%m" | relative_url }}">{{ include.date | date: "%B" }}</a>
-  <a href="{{ include.date | date: "%Y" | relative_url }}">{{ include.date | date: "%Y" }}</a>
+  <a href="{{ include.date | date: "%Y/%m/%d/" | relative_url }}">{{ include.date | date: "%d" }}</a>
+  <a href="{{ include.date | date: "%Y/%m/" | relative_url }}">{{ include.date | date: "%B" }}</a>
+  <a href="{{ include.date | date: "%Y/" | relative_url }}">{{ include.date | date: "%Y" }}</a>
 {% else %}
   {{ include.date | date_to_long_string }}
 {% endif %}
