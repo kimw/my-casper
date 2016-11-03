@@ -124,7 +124,7 @@ includes, and/or sass.
   ```yaml
   -
     name: Home
-    slug: home
+    slug: home  # optional
     url: /
   -
     name: About
@@ -142,7 +142,7 @@ includes, and/or sass.
 
 * Enableing page covers
 
-  You can set cover of a page/post by adding the line follow into your
+  You can set cover of a page/post by adding the line as follow into your
   page/post's Front Matter.
 
   ```yaml
@@ -182,8 +182,9 @@ Contributing
 Bug reports and pull requests are welcome on GitHub at
 https://github.com/kimw/my-casper. This project is intended to be a safe,
 welcoming space for collaboration, and contributors are expected to adhere to
-the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+the [Contributor Covenant][] code of conduct.
 
+[Contributor Covenant]: http://contributor-covenant.org
 
 Development
 -----------
