@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["kim"]
   spec.email         = ["kim@kimwong.me"]
 
-  spec.summary       = %q{A theem ported from Ghost Casper.}
+  spec.summary       = %q{A theme ported from Ghost Casper.}
   spec.homepage      = "https://github.com/kimw/my-casper"
   spec.license       = "MIT"
 
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll", "~> 3.3"
 
   spec.add_development_dependency "bundler", "~> 1.12"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rake", "~> 12.3.3"
   spec.add_development_dependency "jekyll-paginate"
   spec.add_development_dependency "jekyll-archives"
 end
